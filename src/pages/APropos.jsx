@@ -1,4 +1,5 @@
 import Navbar from '../composants/Navbar'
+import Footer from '../composants/Footer'
 import './APropos.css'
 
 function APropos() {
@@ -23,6 +24,7 @@ function APropos() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
