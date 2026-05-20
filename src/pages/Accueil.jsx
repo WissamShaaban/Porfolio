@@ -1,11 +1,12 @@
 import Navbar from '../composants/Navbar'
+import SectionHero from '../composants/SectionHero'
 
 function Accueil() {
   return (
     <div>
       <Navbar />
       <main>
-        <h1>Page d'accueil — en construction</h1>
+        <SectionHero />
       </main>
     </div>
   )
