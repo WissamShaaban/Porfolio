@@ -1,7 +1,12 @@
+import Navbar from '../composants/Navbar'
+
 function Contacts() {
   return (
     <div>
-      <h1>Contacts</h1>
+      <Navbar />
+      <main>
+        <h1>Contacts — en construction</h1>
+      </main>
     </div>
   )
 }

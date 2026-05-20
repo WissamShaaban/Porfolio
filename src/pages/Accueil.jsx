@@ -1,7 +1,12 @@
+import Navbar from '../composants/Navbar'
+
 function Accueil() {
   return (
     <div>
-      <h1>Page d'accueil</h1>
+      <Navbar />
+      <main>
+        <h1>Page d'accueil — en construction</h1>
+      </main>
     </div>
   )
 }

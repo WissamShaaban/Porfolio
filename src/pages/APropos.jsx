@@ -1,7 +1,12 @@
+import Navbar from '../composants/Navbar'
+
 function APropos() {
   return (
     <div>
-      <h1>À propos</h1>
+      <Navbar />
+      <main>
+        <h1>À propos — en construction</h1>
+      </main>
     </div>
   )
 }
