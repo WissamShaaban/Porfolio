@@ -1,62 +1,62 @@
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 60px 80px;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: calc(100vh - 60px);
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-texte {
-  flex: 1;
-  max-width: 480px;
+  flex: 0 0 55%;
+  padding: 80px 80px 80px 80px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-metier {
   font-size: 12px;
   font-weight: 700;
   color: #e8a020;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   display: block;
   margin-bottom: 16px;
 }
 
 .hero-titre {
-  font-size: 48px;
+  font-size: 72px;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.05;
   color: #1a1a1a;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .hero-description {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.6;
-  border: 1px solid #ccc;
-  padding: 10px 12px;
-  margin-bottom: 28px;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 400px;
 }
 
 .hero-boutons {
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
 .bouton-principal,
 .bouton-secondaire {
-  padding: 8px 20px;
-  font-size: 13px;
+  padding: 10px 26px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 4px;
   cursor: pointer;
   transition: opacity 0.2s;
+  display: inline-block;
 }
 
 .bouton-principal {
-  background-color: #f0c040;
+  background-color: #f5c842;
   color: #1a1a1a;
   border: none;
 }
@@ -64,36 +64,62 @@
 .bouton-secondaire {
   background-color: transparent;
   color: #1a1a1a;
-  border: 1px solid #1a1a1a;
+  border: 1.5px solid #1a1a1a;
 }
 
 .bouton-principal:hover,
 .bouton-secondaire:hover {
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 0 0 45%;
   position: relative;
-  min-height: 400px;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .blob {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  inset: 0;
   background-color: #f5c842;
-  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  border-radius: 50% 0 0 50% / 40% 0 0 40%;
   z-index: 0;
 }
 
 .hero-photo {
   position: relative;
   z-index: 1;
-  width: 280px;
-  height: auto;
-  object-fit: cover;
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .hero-texte {
+    flex: none;
+    padding: 48px 24px 32px;
+  }
+
+  .hero-titre {
+    font-size: 44px;
+  }
+
+  .hero-image {
+    flex: none;
+    width: 100%;
+    height: 360px;
+  }
+
+  .blob {
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+  }
 }

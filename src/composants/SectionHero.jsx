@@ -1,3 +1,4 @@
+import photoHero from '../assets/images/photo-hero.png'
 import './SectionHero.css'
 
 function SectionHero() {
@@ -20,7 +21,7 @@ function SectionHero() {
 
       <div className="hero-image">
         <div className="blob"></div>
-        <div className="hero-photo-placeholder">Photo</div>
+        <img src={photoHero} alt="Photo de profil" className="hero-photo" />
       </div>
     </section>
   )

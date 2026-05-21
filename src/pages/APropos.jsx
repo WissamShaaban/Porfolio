@@ -1,5 +1,6 @@
 import Navbar from '../composants/Navbar'
 import Footer from '../composants/Footer'
+import photoAPropos from '../assets/images/photo-apropos.png'
 import './APropos.css'
 
 function APropos() {
@@ -20,7 +21,7 @@ function APropos() {
         </div>
         <div className="apropos-image">
           <div className="apropos-fond-jaune">
-            <div className="apropos-photo-placeholder">Photo</div>
+            <img src={photoAPropos} alt="Photo à propos" className="apropos-photo" />
           </div>
         </div>
       </main>
