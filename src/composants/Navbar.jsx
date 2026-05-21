@@ -14,14 +14,10 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/#projets" className="">
-            Projects
-          </NavLink>
+          <a href="/#projets">Projects</a>
         </li>
         <li>
-          <NavLink to="/contacts" className={({ isActive }) => isActive ? 'actif' : ''}>
-            Contacts
-          </NavLink>
+          <a href="mailto:contact@example.com">Contacts</a>
         </li>
       </ul>
     </nav>
