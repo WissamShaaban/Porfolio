@@ -1,42 +1,41 @@
 .hero {
   display: flex;
   align-items: center;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 57px);
   overflow: hidden;
   position: relative;
 }
 
 .hero-texte {
-  flex: 0 0 55%;
-  padding: 80px 80px 80px 80px;
+  flex: 0 0 50%;
+  padding: 60px 80px;
   position: relative;
   z-index: 2;
 }
 
 .hero-metier {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #e8a020;
   letter-spacing: 2px;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .hero-titre {
-  font-size: 72px;
+  font-size: 80px;
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.0;
   color: #1a1a1a;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .hero-description {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 400px;
+  font-size: 16px;
+  color: #777;
+  line-height: 1.75;
+  margin-bottom: 42px;
 }
 
 .hero-boutons {
@@ -46,9 +45,9 @@
 
 .bouton-principal,
 .bouton-secondaire {
-  padding: 10px 26px;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 11px 28px;
+  font-size: 15px;
+  font-weight: 700;
   border-radius: 4px;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -72,30 +71,35 @@
   opacity: 0.7;
 }
 
+/* Zone image : occupe la moitié droite de manière absolue */
 .hero-image {
-  flex: 0 0 45%;
-  position: relative;
-  height: calc(100vh - 60px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
+/* Blob ancré à droite, bord gauche organique */
 .blob {
   position: absolute;
-  inset: 0;
+  inset: -5% 0 -5% 10%;
   background-color: #f5c842;
-  border-radius: 50% 0 0 50% / 40% 0 0 40%;
+  border-radius: 42% 0 0 55% / 50% 0 0 50%;
   z-index: 0;
 }
 
 .hero-photo {
   position: relative;
   z-index: 1;
-  height: 90%;
+  height: 100%;
   width: auto;
   object-fit: contain;
-  object-position: bottom;
+  object-position: bottom center;
 }
 
 @media (max-width: 900px) {
@@ -114,12 +118,14 @@
   }
 
   .hero-image {
-    flex: none;
+    position: relative;
     width: 100%;
     height: 360px;
+    inset: auto;
   }
 
   .blob {
-    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    inset: 0 0 0 15%;
+    border-radius: 40% 0 0 40% / 50% 0 0 50%;
   }
 }
