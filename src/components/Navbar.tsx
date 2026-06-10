@@ -9,7 +9,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
   const { state, logout } = useAuth()
 
   return (
-    <nav className={`flex items-center justify-between px-10 py-6 ${transparent ? 'absolute top-0 left-0 right-0 z-10' : 'border-b border-gray-100'}`}>
+    <nav className={`flex items-center justify-between px-10 py-6 ${transparent ? 'absolute top-0 left-0 right-0 z-50' : 'border-b border-gray-100'}`}>
       <NavLink to="/" className="text-xl font-semibold tracking-tight text-gray-900">
         Madelyn Torff
       </NavLink>
