@@ -1,16 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "tailwindcss";
 
-body {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  color: #1a1a1a;
-  background-color: #ffffff;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    color: #1a1a1a;
+    background-color: #ffffff;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
 }
