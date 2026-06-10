@@ -36,7 +36,7 @@ export function useForm<T extends Record<string, string>>(
     const result = schema.safeParse(values)
     if (!result.success) {
       const fieldErrors: FormErrors<T> = {}
-      result.error.errors.forEach(err => {
+      result.error.issues.forEach(err => {
         const field = err.path[0] as keyof T
         if (!fieldErrors[field]) fieldErrors[field] = err.message
       })
