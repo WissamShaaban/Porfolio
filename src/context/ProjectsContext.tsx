@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, ReactNode } from 'react'
+import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
 import type { Project, ContactMessage, Testimonial } from '../types'
 
 interface AppState {
@@ -69,6 +69,16 @@ const initialTestimonials: Testimonial[] = [
   },
 ]
 
+function loadFromStorage(): AppState {
+  try {
+    const raw = localStorage.getItem('portfolio_state')
+    if (raw) return JSON.parse(raw) as AppState
+  } catch {
+    // ignore
+  }
+  return { projects: initialProjects, contacts: [], testimonials: initialTestimonials }
+}
+
 function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'ADD_PROJECT':
@@ -110,11 +120,11 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | null>(null)
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(appReducer, {
-    projects: initialProjects,
-    contacts: [],
-    testimonials: initialTestimonials,
-  })
+  const [state, dispatch] = useReducer(appReducer, undefined, loadFromStorage)
+
+  useEffect(() => {
+    localStorage.setItem('portfolio_state', JSON.stringify(state))
+  }, [state])
 
   return (
     <AppContext.Provider value={{
