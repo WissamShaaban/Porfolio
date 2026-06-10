@@ -4,6 +4,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import { AuthProvider } from './context/AuthContext'
 import { AppProvider } from './context/ProjectsContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import PageTransition from './components/PageTransition'
 import { GOOGLE_CLIENT_ID } from './services/googleAuth'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -31,28 +32,30 @@ export default function App() {
         <AppProvider>
           <BrowserRouter>
             <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/a-propos" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/projects/:id" element={<ProjectDetail />} />
+              <PageTransition>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/a-propos" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/projects/:id" element={<ProjectDetail />} />
 
-                <Route
-                  path="/admin"
-                  element={
-                    <ProtectedRoute>
-                      <AdminLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route index element={<Navigate to="/admin/projects" replace />} />
-                  <Route path="projects" element={<AdminProjects />} />
-                  <Route path="contacts" element={<AdminContacts />} />
-                </Route>
+                  <Route
+                    path="/admin"
+                    element={
+                      <ProtectedRoute>
+                        <AdminLayout />
+                      </ProtectedRoute>
+                    }
+                  >
+                    <Route index element={<Navigate to="/admin/projects" replace />} />
+                    <Route path="projects" element={<AdminProjects />} />
+                    <Route path="contacts" element={<AdminContacts />} />
+                  </Route>
 
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </PageTransition>
             </Suspense>
           </BrowserRouter>
         </AppProvider>
